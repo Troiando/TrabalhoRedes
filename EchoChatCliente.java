@@ -6,7 +6,7 @@ public class EchoChatCliente {
     public static void main(String[] args) {
 
         String destIP = "127.0.0.1";
-        int destPort = 3500;
+        int destPort = 8888;
 
         for (int i = 0; i < args.length; i += 2) {
             if (args[i].equals("--port")) {
@@ -25,7 +25,7 @@ public class EchoChatCliente {
         PrintStream out = System.out;
 
         Socket socket = null;
-
+        
         try {
             InetAddress destAddr = InetAddress.getByName(destIP);
             String localHost = "127.0.0.1";
@@ -57,17 +57,16 @@ public class EchoChatCliente {
                 out.print("Amigo :/ ");
                 String message = br.readLine();
                 out.println(message);
-                if (message.equals("sair") || message.equals("sair")) {
+                if (message.toLowerCase().equals("sair")) {
                     break;
                 }
-
-                out.print("Eu :: ");
+                //
+                out.print("Eu :/ ");
                 reply = sc.nextLine();
                 pw.println(reply);
                 pw.flush();
             }
             out.println("");
-
             br.close();
             pw.close();
         } catch (IOException e) {
