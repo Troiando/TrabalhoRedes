@@ -12,7 +12,7 @@ public class EchoChatServer {
     public static void main(String[] args) {
 
         String ip = "127.0.0.1";
-        int port = 3500;
+        int port = 8888;
         int backlog = 50;
 
         for (int i = 0; i < args.length; i += 2) {
@@ -66,18 +66,18 @@ public class EchoChatServer {
             String message = br.readLine();
             while (true) {
                 out.println(message);
-                if (message.equals("sair") || message.equals("sair"))
+                if (message.toLowerCase().equals("sair"))
                     break;
 
                 out.print("Eu :/ ");
                 String reply = sc.nextLine();
                 pw.println(reply);
                 pw.flush();
-                if (reply.equals("sair") || reply.equals("sair")) {
+                if (reply.toLowerCase().equals("sair")) {
                     break;
                 }
 
-                out.print("Amigo :: ");
+                out.print("Amigo :/ ");
                 message = br.readLine();
             }
             out.println("");
